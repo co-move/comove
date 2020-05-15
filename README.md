@@ -24,7 +24,7 @@ If there is time later, we will consider the solution of inter-cross compilation
 
 CoMove plans to provide a set of smart contract tools. it consists of many parts. Considering the limited resources, we plan to focus on the migration of virtual machine and the transformation of the Move programming language. When this infrastructure is complete, let's develop the rest of the work.
 
-Honestly, developing CoMove is a challenging task, and one of the most challenging tasks is how to integrate the Cosmos SDK and Move VM. Usually when dealing with this kind of problem, we will introduce the "bridge" design pattern to ensure that both sides of the integration can be as unchanged as possible. Throughout the implementation we will implement two bridges: Ship and Borrow.
+Honestly, developing CoMove is a challenging task, and one of the most challenging tasks is how to integrate the Cosmos SDK and Move VM. Usually when dealing with this kind of problem, we will introduce the "bridge" design pattern to ensure that both sides of the integration can be as unchanged as possible. Throughout the implementation we will implement two bridges: Ship and DataLoader.
 
 CoMove is mainly composed of the following parts:
 
@@ -36,9 +36,9 @@ It is the implementation of CoMove in the Cosmos SDK, and it is a standard Cosmo
 
 As we mentioned earlier, Ship is a bridge that connects the module module and the Move VM. Move VM is still in a very active development state, so we need to make a wrapper for it to ensure that we can adapt well to the update of the Move VM. Another important function is that it allows Cosmos Module written in GO language to call Move VM written in Rust language. When the Move VM virtual machine executes a smart contract, many Global States will change according to the execution results, but these changes will not update to blockchain immediately. Instead, a "Write Set" is generated and handed over to an execution module. This is exactly what we need.
 
-### Borrow
+### DataLoader
 
-Borrow is another bridge we designed to help Move implement some native functions. One of the most important functions is BorrowGlobal. It is used to borrow some read-only Global States during smart contract execution. So we simply call it Borrow.
+DataLoader is another bridge we designed to help Move implement some native functions. One of the most important functions is DataLoaderGlobal. It is used to load some read-only Global States during smart contract execution. So we simply call it DataLoader.
 
 ### Standard Library
 
@@ -81,7 +81,7 @@ Cosmos 使用Go语言开发，而Move VM使用的Rust语言开发。所以，要
 
 CoMove计划提供一整套的智能合约工具集。他由很多部分组成。考虑到资源有限，我们计划先将主要精力用在虚拟机的移植和Move编程语言的改造上。等到这些基础设施完成后，我们再来开发剩下来的其他工作。
 
-老实说，开发CoMove是一个具有挑战性的工作，其中最具挑战的工作之一就是如何集成Cosmos SDK和Move VM。通常在处理这类问题时候的，我们都会引入"bridge"设计模式，来保证被集成的双方都可以尽可能地保持不变。在整个实现过程中我们将实现两座桥，它们分别是：Ship 和 Borrow。
+老实说，开发CoMove是一个具有挑战性的工作，其中最具挑战的工作之一就是如何集成Cosmos SDK和Move VM。通常在处理这类问题时候的，我们都会引入"bridge"设计模式，来保证被集成的双方都可以尽可能地保持不变。在整个实现过程中我们将实现两座桥，它们分别是：Ship 和 DataLoader。
 
 CoMove主要由以下几个部分组成：
 
@@ -93,9 +93,9 @@ CoMove主要由以下几个部分组成：
 
 正如我们之前提到的，Ship是一个连接module module和Move VM的桥。Move VM目前仍然处于非常活跃的开发状态，因此，我们需要对他做一个封装，用来确保我们可以很好地适应Move VM的更新。它的另一个重要的作用就是可以让GO语言写的Cosmos Module可以调用Rust语言写的Move VM。Move VM虚拟机在执行智能合约的时候，很多Global State都会根据执行结果而发生变化，但是这些变化不会立即生效，而是生成一个"Write Set"结果集，交给一个叫execution module的处理。这也正是我们需要的。
 
-### Borrow
+### DataLoader
 
-Borrow是我们设计的另一个桥，主要用来帮助Move实现一些Native functions. 这其中最重要的一个function就是BorrowGlobal. 它用在智能合约执行过程中获取一些只读的Global States. 所以我们干脆就叫他Borrow.
+DataLoader是我们设计的另一个桥，主要用来帮助Move实现一些Native functions. 这其中最重要的一个function就是DataLoaderGlobal. 它用在智能合约执行过程中获取一些只读的Global States. 所以我们干脆就叫他DataLoader.
 
 ### Standard Library 
 
