@@ -1,5 +1,5 @@
 # CoMove
-CoMove is a short name for Cosmos-Move, A Smart Contract Framework on Cosmos Blockchain.
+CoMove is a short name for Cosmos-Move, A Smart Contract Framework on Cosmos Blockchain. 
 
 ## Background
 
@@ -8,6 +8,10 @@ CoMove is a short name for Cosmos-Move, A Smart Contract Framework on Cosmos Blo
 [Move](https://github.com/libra/libra/tree/master/language) is a dedicated smart contract programming language created by Facebook Libra. It is small, secure and powerful. But it is still immature and still under heavy development. However, I am convinced that it will be the best smart contract language.
 
 [CosmWasm](https://github.com/cosmwasm/) It is the first smart contract solution on Cosmos. Thanks to Ethan Frey and other contributors for their exploration and contribution in this area.
+
+## RoadMap
+
+[CoMove Project](https://github.com/orgs/co-move/projects/1) 
 
 ## About GO and Rust
 
