@@ -1,4 +1,5 @@
-# CoMove
+# :sparkles: Welcome to CoMove Project :sparkles:
+
 CoMove is a short name for Cosmos-Move, A Smart Contract Framework on Cosmos Blockchain. 
 
 ## Background
@@ -11,7 +12,14 @@ CoMove is a short name for Cosmos-Move, A Smart Contract Framework on Cosmos Blo
 
 ## RoadMap
 
-[CoMove Project](https://github.com/orgs/co-move/projects/1) 
+- [x] GO & Rust inter-operation.
+- [ ] Port Move [VM](https://github.com/co-move/vm) 
+- [ ] Build Bridges between Move and Cosmos
+- [x] Create a demo for CoMove - [moved](https://github.com/co-move/moved)
+- [ ] Create Move SDK - [stdlib](https://github.com/co-move/stdlib)
+- [x] Create toolset: [Move Runner](https://github.com/ping-pub/move-runner) or archive all cards in a column
+
+for more details, please visit: [CoMove Project](https://github.com/orgs/co-move/projects/1) 
 
 ## About GO and Rust
 
